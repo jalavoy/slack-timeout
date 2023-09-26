@@ -14,10 +14,11 @@ from slack_bolt.adapter.socket_mode import SocketModeHandler
 
 app = App(token=os.environ.get("SLACK_BOT_TOKEN"))
 redis_hostname = os.environ.get("REDIS_HOST", "localhost")
+redis_port = os.environ.get("REDIS_PORT", 6379)
 
 redis = redis.Redis(
     host=redis_hostname,
-    port=6379,
+    port=redis_port,
     socket_timeout=5
 )
 
